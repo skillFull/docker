@@ -1,0 +1,16 @@
+
+services:
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - react
+    ports:
+      - 80:80
+    restart: always
+
